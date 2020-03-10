@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Experiment
-        run: pwd
+        run: |
+          npm i surge
+          npx surge --domain bachalo.surge.sh -p .
       - name: Publish to surge.sh
         uses: dswistowski/surge-sh-action@v1.0.0
         with:
