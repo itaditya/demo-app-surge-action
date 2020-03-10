@@ -10,6 +10,7 @@ jobs:
       - name: Publish to surge.sh
         uses: dswistowski/surge-sh-action@v1.0.0
         with:
-          domain: 'https://sabbekarhai.surge.sh'
+          domain: 'adityasabbekarhai.surge.sh'
+          project: '.'
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
