@@ -1,14 +1,20 @@
 name: My workflow
 
-on: [push,pull_request] 
+on: [push,pull_request]
 
 jobs:
   deploy:
     name: My job
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to foo-bar.surge.sh
-        uses: itaditya/surge-action@v1
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - name: Install deps
+        run: |
+          npm install
+      - name: Deploy to surge.sh
+        uses: itaditya/surge-action@v2
         with:
           suffix: 'my-'
           prefix: '-storybook'
