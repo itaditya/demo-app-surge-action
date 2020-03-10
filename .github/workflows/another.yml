@@ -1,0 +1,20 @@
+name: Another workflow
+
+on: [push,pull_request]
+
+jobs:
+  deploy:
+    name: My job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Experiment
+        run: |
+          npm i surge
+          npx surge --domain bachalo.surge.sh -p .
+      - name: Publish to surge.sh
+        uses: dswistowski/surge-sh-action@v1.0.0
+        with:
+          domain: 'adityasabbekarhai.surge.sh'
+          project: '.'
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
