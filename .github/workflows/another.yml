@@ -10,9 +10,6 @@ jobs:
       - name: Publish to surge.sh
         uses: dswistowski/surge-sh-action@v1.0.0
         with:
-          suffix: 'my-'
-          prefix: '-storybook'
-          action: 'publish'
-          project: '.'
+          domain: 'https://sabbekarhai.surge.sh'
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
